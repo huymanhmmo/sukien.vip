@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { services } from '@/content/services';
+import { serviceHref, services } from '@/content/services';
 import SectionHeading from '@/components/ui/SectionHeading';
 import Icon from '@/components/ui/Icon';
 import ServiceIllustration from '@/components/ui/ServiceIllustration';
@@ -22,7 +22,7 @@ export default function Services() {
         <p className="service-atlas-intro">Chọn một điểm chạm để xem cách Your Dreams biến mục tiêu thành trải nghiệm hoàn chỉnh.</p>
         <div className="service-atlas">
           {services.map((service, index) => (
-            <Link key={service.slug} className={`service-atlas-card service-atlas-card--${index + 1}`} href={`/dich-vu/${service.slug}`}>
+            <Link key={service.slug} className={`service-atlas-card service-atlas-card--${index + 1}`} href={serviceHref(service.slug)}>
               <div className="service-atlas-art" aria-hidden="true"><ServiceIllustration kind={service.slug} /></div>
               <div className="service-atlas-copy">
                 <div className="service-atlas-meta"><span>{service.number}</span><span>{labels[service.slug]}</span></div>

@@ -61,3 +61,8 @@ export const services: Service[] = [
     question: 'Có thể dùng bộ nhận diện sẵn có của doanh nghiệp?', answer: 'Có. Hãy gửi logo gốc, màu sắc, phông chữ và hướng dẫn thương hiệu. Các hạng mục sẽ được thiết kế đồng bộ và trình duyệt trước khi sản xuất.'
   },
 ];
+
+export function serviceHref(serviceSlug: string) {
+  const legacySlug = serviceSlug === 'giao-duc-the-thao' ? 'day-boi-vinhomes' : serviceSlug;
+  return `/dich-vu/${legacySlug}`;
+}

@@ -1,0 +1,51 @@
+# Sự Kiện Vip — Your Dreams
+
+> Công ty Cổ phần Your Dreams cung cấp dịch vụ tổ chức sự kiện thể thao, doanh nghiệp, giáo dục và hoạt động cộng đồng tại Việt Nam.
+
+Website chính thức: https://sukien.vip
+Ngôn ngữ: Tiếng Việt
+Hotline: +84 979 121 097
+Email: info@sukien.vip
+Địa chỉ: Thôn Công Đình 3, Xã Phù Đổng, Thành phố Hà Nội, Việt Nam
+
+## Trang chính
+- [Trang chủ](https://sukien.vip/): Tổng quan năng lực và các giải pháp tổ chức sự kiện.
+- [Giới thiệu](https://sukien.vip/gioi-thieu): Thông tin doanh nghiệp và cách làm việc.
+- [Dịch vụ](https://sukien.vip/dich-vu): Danh mục dịch vụ tổ chức sự kiện.
+- [Dự án](https://sukien.vip/du-an): Các chương trình và hoạt động đã thực hiện.
+- [Góc chia sẻ](https://sukien.vip/blog): Hướng dẫn lập kế hoạch và tổ chức sự kiện.
+- [Liên hệ](https://sukien.vip/lien-he): Kênh liên hệ và gửi brief.
+
+## Dịch vụ
+- [Tổ chức sự kiện thể thao](https://sukien.vip/dich-vu/to-chuc-su-kien-the-thao)
+- [Dịch vụ tổ chức sự kiện doanh nghiệp](https://sukien.vip/dich-vu/to-chuc-su-kien-doanh-nghiep)
+- [Dịch vụ giáo dục thể thao](https://sukien.vip/dich-vu/giao-duc-the-thao)
+- [Cho thuê thiết bị sự kiện](https://sukien.vip/dich-vu/cho-thue-thiet-bi-su-kien)
+- [Cung cấp nhân sự sự kiện](https://sukien.vip/dich-vu/nhan-su-su-kien)
+- [Truyền thông và quay phim sự kiện](https://sukien.vip/dich-vu/truyen-thong-su-kien)
+- [Thiết kế và in ấn sự kiện](https://sukien.vip/dich-vu/thiet-ke-in-an)
+
+Danh mục dịch vụ đầy đủ, cùng phạm vi từng giải pháp, được cập nhật tại trang Dịch vụ.
+
+## Nội dung và nguồn
+- Thông tin dự án, dịch vụ và hướng dẫn được đăng trực tiếp trên website của Your Dreams.
+- Quy mô, thời gian, địa điểm và phạm vi công việc thay đổi theo từng chương trình; hãy liên hệ để xác nhận thông tin cụ thể.
+- Website không công bố bảng giá cố định.
+
+## Hướng dẫn tổ chức sự kiện
+- [Checklist lập kế hoạch sự kiện](https://sukien.vip/blog/checklist-lap-ke-hoach-su-kien): Các bước lập brief, tiến độ, phân công và kiểm tra trước ngày diễn ra.
+- [Tổ chức sự kiện chuyên nghiệp](https://sukien.vip/blog/to-chuc-su-kien-chuyen-nghiep): Tổng quan quy trình và phối hợp nhà cung cấp.
+- [Cách chọn đơn vị tổ chức sự kiện](https://sukien.vip/blog/chon-don-vi-to-chuc-su-kien): Tiêu chí đánh giá brief, phạm vi, vận hành và nghiệm thu.
+- [Chi phí tổ chức sự kiện](https://sukien.vip/blog/chi-phi-to-chuc-su-kien): Các nhóm chi phí và thông tin cần có để xin dự toán; không phải bảng giá cố định.
+- [Cẩm nang thiết bị sự kiện](https://sukien.vip/blog/cam-nang-thue-thiet-bi-su-kien): Checklist sân khấu, nhà bạt, âm thanh, ánh sáng và lắp đặt.
+- [Tổ chức sự kiện doanh nghiệp](https://sukien.vip/blog/to-chuc-su-kien-doanh-nghiep): Hướng dẫn chọn mục tiêu, kịch bản và phương án vận hành.
+- [Tổ chức sự kiện ngoài trời](https://sukien.vip/blog/to-chuc-su-kien-ngoai-troi): Khảo sát địa điểm, thời tiết, kỹ thuật và an toàn.
+- [Event là gì và các loại sự kiện](https://sukien.vip/blog/event-la-gi-va-cac-loai-su-kien): Giải thích thuật ngữ và cách phân loại theo mục tiêu.
+- [Tổ chức giải pickleball](https://sukien.vip/blog/to-chuc-giai-pickleball): Thể thức, sân, lịch thi đấu và điều phối người tham gia.
+- [Tổ chức giải bơi doanh nghiệp](https://sukien.vip/blog/to-chuc-giai-boi-cho-doanh-nghiep): Kế hoạch thi đấu và phối hợp an toàn tại hồ bơi.
+- [Tổ chức sự kiện khai trương](https://sukien.vip/blog/to-chuc-su-kien-khai-truong): Nghi thức, luồng khách và vận hành địa điểm.
+
+## Sitemaps
+- [Sitemap index](https://sukien.vip/sitemap.xml)
+- [Sitemap bài viết](https://sukien.vip/sitemap-posts.xml)
+- [Sitemap trang, dịch vụ và dự án](https://sukien.vip/sitemap-pages.xml)

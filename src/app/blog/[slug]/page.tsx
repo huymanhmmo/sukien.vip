@@ -1,17 +1,28 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import JsonLd from '@/components/ui/JsonLd';
-import BlogCard from '@/components/ui/BlogCard';
-import Icon from '@/components/ui/Icon';
+import { notFound, permanentRedirect } from 'next/navigation';
+import ArticleContent from '@/components/blog/ArticleContent';
+import { canonicalLegacySlugByPostSlug, postHref } from '@/content/legacy-content-routes';
 import { posts } from '@/content/posts';
-import { pageMetadata } from '@/lib/seo';
-import { site } from '@/lib/site';
+import { postMetadata } from '@/lib/post-seo';
 type Props = { params: Promise<{ slug: string }> };
-const formatDate = (date: string) => new Intl.DateTimeFormat('vi-VN', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(date));
-const idFor = (heading: string) => heading.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-');
-export function generateStaticParams() { return posts.map(post => ({ slug: post.slug })); }
-export async function generateMetadata({ params }: Props): Promise<Metadata> { const { slug } = await params; const post = posts.find(item => item.slug === slug); return post ? { ...pageMetadata(post.title, post.excerpt, `/blog/${slug}`), openGraph: { title: post.title, description: post.excerpt, url: `${site.url}/blog/${slug}`, type: 'article', publishedTime: post.date, modifiedTime: post.updated, images: [{ url: `/images/${post.image}.webp`, alt: post.alt }] } } : {}; }
-export default async function PostPage({ params }: Props) { const { slug } = await params; const post = posts.find(item => item.slug === slug); if (!post) notFound(); const path = `/blog/${post.slug}`; const related = posts.filter(item => item.slug !== post.slug).slice(0, 2); return <><div className="container"><Breadcrumbs items={[{ name: 'Góc chia sẻ', href: '/blog' }, { name: post.title, href: path }]} /><header className="article-header"><p className="eyebrow red-text">{post.category.toUpperCase()}</p><h1>{post.title}</h1><div className="article-meta"><span>Đăng ngày {formatDate(post.date)}</span><span>Cập nhật {formatDate(post.updated)}</span><span>{post.readingTime}</span></div></header><div className="detail-image"><Image src={`/images/${post.image}.webp`} alt={post.alt} fill preload sizes="(max-width: 760px) 100vw, 1320px" /></div></div><div className="container detail-grid"><article className="prose"><p className="article-lead">{post.lead}</p>{post.sections.map(section => <section key={section.heading} id={idFor(section.heading)}><h2>{section.heading}</h2>{section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}{section.list && <ul>{section.list.map(item => <li key={item}>{item}</li>)}</ul>}</section>)}</article><aside className="detail-aside toc"><p className="eyebrow">NỘI DUNG BÀI VIẾT</p><ol>{post.sections.map(section => <li key={section.heading}><a href={`#${idFor(section.heading)}`}>{section.heading.replace(/^\d+\. /, '')}</a></li>)}</ol><Link href="/lien-he" className="button button-red">Trao đổi ý tưởng <Icon name="up-right" /></Link></aside></div><section className="section blog-section"><div className="container"><h2 className="related-heading">Đọc thêm</h2><div className="blog-grid">{related.map(item => <BlogCard key={item.slug} post={item} />)}</div></div></section><JsonLd data={{ '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, description: post.excerpt, image: `${site.url}/images/${post.image}.webp`, datePublished: post.date, dateModified: post.updated, inLanguage: 'vi-VN', mainEntityOfPage: `${site.url}${path}`, author: { '@type': 'Organization', name: site.company }, publisher: { '@id': `${site.url}/#organization` } }} /></>; }
+
+export function generateStaticParams() {
+  return posts.filter(post => !canonicalLegacySlugByPostSlug[post.slug]).map(post => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = posts.find(item => item.slug === slug);
+  return post ? postMetadata(post, postHref(post.slug)) : {};
+}
+
+export default async function PostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = posts.find(item => item.slug === slug);
+  if (!post) notFound();
+
+  const path = postHref(post.slug);
+  if (path !== `/blog/${post.slug}`) permanentRedirect(path);
+
+  return <ArticleContent post={post} path={path} />;
+}

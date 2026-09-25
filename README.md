@@ -43,8 +43,11 @@ Tương tự, thêm dự án tại `src/content/projects.ts`, hoặc thêm dịc
 - Title, description và canonical riêng cho từng URL.
 - HTML tĩnh cho toàn bộ trang dịch vụ, dự án và blog.
 - `robots.txt` và `sitemap.xml` tự sinh từ nội dung.
+- `public/llms.txt` tóm tắt thông tin và liên kết chính để các dịch vụ AI có thể chọn sử dụng; đây không phải tín hiệu xếp hạng của Google.
 - JSON-LD cho Organization/LocalBusiness, WebSite, Service, BreadcrumbList và BlogPosting.
 - Ảnh WebP có alt text mô tả và kích thước rõ ràng để giảm layout shift.
+- Giữ nguyên slug gốc cho 87 URL bài viết WordPress trong `src/content/legacy-content-routes.ts`; nhóm nội dung gần trùng dùng canonical để thống nhất URL đại diện. Sitemap index `/sitemap.xml` trỏ đến sitemap bài viết và trang; các sitemap WordPress cũ được ánh xạ sang sitemap mới.
+- Hình minh họa vector riêng có nguồn trong `src/illustrations` và ảnh WebP đã tối ưu trong `public/images`; ảnh dự án thật chỉ dùng ở chủ đề phù hợp.
 
 Sau khi gắn domain trên Vercel, gửi `https://sukien.vip/sitemap.xml` vào Google Search Console và kiểm tra Rich Results, PageSpeed trên domain thật.
 
