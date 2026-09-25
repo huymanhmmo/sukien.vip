@@ -1,0 +1,6 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import Icon from '@/components/ui/Icon';
+export default function About() {
+  return <section className="about-section section"><div className="container about-grid"><div className="about-photo"><Image src="/images/di-de-lon.webp" alt="Đội ngũ cùng trẻ em trong chương trình Đi để lớn ROX Living 2025" fill sizes="(max-width: 760px) 100vw, 45vw" /><span className="photo-note">KẾT NỐI CON NGƯỜI QUA TRẢI NGHIỆM</span></div><div className="about-copy"><p className="eyebrow">03 / VỀ YOUR DREAMS</p><h2>Làm bằng tâm.<br />Chạm bằng<br /><span>trải nghiệm.</span></h2><p>Chúng tôi tin giá trị của một sự kiện nằm ở những gì còn đọng lại: một kết nối mới, một tinh thần tập thể, một câu chuyện được nhớ đến.</p><p>Từ tổ chức sự kiện đến giáo dục thể thao, Your Dreams cùng bạn biến những mục tiêu thành trải nghiệm cụ thể, bằng sự sáng tạo và cách làm việc chỉn chu.</p><Link href="/gioi-thieu" className="text-link">Gặp gỡ Your Dreams <Icon /></Link><div className="about-facts"><div><strong>2019</strong><span>Năm thành lập</span></div><div><strong>05</strong><span>Bước đồng hành</span></div><div><strong>Toàn quốc</strong><span>Phạm vi hoạt động</span></div></div></div></div></section>;
+}
