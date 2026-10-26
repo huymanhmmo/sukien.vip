@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Attribution: https://sukien.vip
+Contact: info@sukien.vip
+Organization: CÔNG TY CỔ PHẦN YOUR DREAMS
+License: Content available for AI search grounding and citation with attribution to https://sukien.vip

@@ -69,7 +69,7 @@ export const legacyContentRoutes: LegacyContentRoute[] = [
   {"sourceSlug":"huong-dan-thue-bat-su-kien","kind":"post","contentSlug":"cam-nang-thue-thiet-bi-su-kien","canonicalSlug":"cam-nang-thiet-bi-su-kien"},
   {"sourceSlug":"nhan-vien-su-kien-khong-kinh-nghiem","kind":"post","contentSlug":"nghe-to-chuc-su-kien","canonicalSlug":"cam-nang-nhan-vien-su-kien"},
   {"sourceSlug":"trung-tam-su-kien-ha-noi","kind":"post","contentSlug":"chon-dia-diem-to-chuc-su-kien-ha-noi","canonicalSlug":"top-trung-tam-su-kien-ha-noi"},
-  {"sourceSlug":"huong-dan-so-do-to-chuc-su-kien","kind":"post","contentSlug":"checklist-lap-ke-hoach-su-kien","canonicalSlug":"ke-hoach-to-chuc-su-kien"},
+  {"sourceSlug":"huong-dan-so-do-to-chuc-su-kien","kind":"post","contentSlug":"so-do-to-chuc-su-kien","canonicalSlug":"huong-dan-so-do-to-chuc-su-kien"},
   {"sourceSlug":"to-chuc-su-kien-chuyen-nghiep-2","kind":"post","contentSlug":"to-chuc-su-kien-chuyen-nghiep","canonicalSlug":"to-chuc-su-kien-chuyen-nghiep"},
   {"sourceSlug":"truyen-thong-to-chuc-su-kien","kind":"post","contentSlug":"chon-don-vi-to-chuc-su-kien","canonicalSlug":"cong-ty-su-kien-chuyen-nghiep"},
   {"sourceSlug":"y-tuong-to-chuc-su-kien-doc-dao","kind":"post","contentSlug":"y-tuong-to-chuc-su-kien","canonicalSlug":"y-tuong-to-chuc-su-kien-doc-dao"},
@@ -114,6 +114,7 @@ export const canonicalLegacySlugByPostSlug: Record<string, string> = {
   'to-chuc-su-kien-khai-truong': 'to-chuc-su-kien-khai-truong',
   'to-chuc-su-kien-sinh-nhat': 'to-chuc-su-kien-sinh-nhat',
   'checklist-lap-ke-hoach-su-kien': 'ke-hoach-to-chuc-su-kien',
+  'so-do-to-chuc-su-kien': 'huong-dan-so-do-to-chuc-su-kien',
 };
 
 export function postHref(postSlug: string) {

@@ -64,7 +64,30 @@ export default function ArticleContent({ post, path, canonicalPath = path }: {
         <p className="article-lead">{post.lead}</p>
         {post.sections.map(section => <section key={section.heading} id={idFor(section.heading)}>
           <h2>{section.heading}</h2>
+          {section.answerCapsule && <div className="answer-capsule">{section.answerCapsule}</div>}
+          {section.image && (
+            <figure className="article-figure">
+              <div className="article-figure-image">
+                <Image src={section.image.src} alt={section.image.alt} fill sizes="(max-width: 760px) 100vw, 840px" loading="lazy" />
+              </div>
+              {section.image.caption && <figcaption className="article-figure-caption">{section.image.caption}</figcaption>}
+            </figure>
+          )}
           {section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+          {section.table && (
+            <div className="table-responsive">
+              <table className="content-table">
+                <thead>
+                  <tr>{section.table.headers.map((h, i) => <th key={i}>{h}</th>)}</tr>
+                </thead>
+                <tbody>
+                  {section.table.rows.map((row, i) => (
+                    <tr key={i}>{row.map((cell, j) => <td key={j}>{cell}</td>)}</tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
           {section.list && <ul>{section.list.map(item => <li key={item}>{item}</li>)}</ul>}
         </section>)}
         <section>
@@ -89,12 +112,36 @@ export default function ArticleContent({ post, path, canonicalPath = path }: {
     </section>
 
     <JsonLd data={{
-      '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title,
-      description: post.excerpt, image: `${site.url}${postImagePath(post)}`,
-      datePublished: post.date, dateModified: post.updated, inLanguage: 'vi-VN',
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.excerpt,
+      image: `${site.url}${postImagePath(post)}`,
+      datePublished: post.date,
+      dateModified: post.updated,
+      inLanguage: 'vi-VN',
+      articleSection: post.category,
       mainEntityOfPage: `${site.url}${canonicalPath}`,
-      author: { '@type': 'Organization', name: site.company },
+      author: {
+        '@type': 'Organization',
+        name: site.company,
+        url: site.url,
+      },
       publisher: { '@id': `${site.url}/#organization` },
     }} />
+    {post.sections.some(s => s.answerCapsule) && (
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: post.sections.filter(s => s.answerCapsule).map(s => ({
+          '@type': 'Question',
+          name: s.heading.replace(/^\d+\.\s*/, ''),
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: s.answerCapsule,
+          },
+        })),
+      }} />
+    )}
   </>;
 }

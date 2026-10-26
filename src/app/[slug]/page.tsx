@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import ArticleContent from '@/components/blog/ArticleContent';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import Icon from '@/components/ui/Icon';
@@ -44,6 +44,10 @@ export default async function LegacyContentPage({ params }: Props) {
   const route = legacyContentRoutes.find(item => item.sourceSlug === slug);
   if (!route) notFound();
 
+  if (route.sourceSlug !== route.canonicalSlug) {
+    permanentRedirect(`/${route.canonicalSlug}`);
+  }
+
   const path = `/${slug}`;
   const canonicalPath = `/${route.canonicalSlug}`;
   if (route.kind === 'post') {
@@ -73,6 +77,24 @@ export default async function LegacyContentPage({ params }: Props) {
         <ul>{project.work.map(item => <li key={item}>{item}</li>)}</ul>
         <h2>Câu chuyện của chương trình</h2>
         <p>{project.story}</p>
+        {project.gallery && project.gallery.length > 0 && (
+          <div>
+            <h2>Hình ảnh khoảnh khắc ấn tượng tại sự kiện</h2>
+            <div className="gallery-grid">
+              {project.gallery.map((image, idx) => (
+                <div className="gallery-photo" key={image}>
+                  <Image
+                    src={`/images/${image}.webp`}
+                    alt={`Tư liệu hình ảnh hoạt động ${idx + 1} của ${project.title}`}
+                    fill
+                    sizes="(max-width: 760px) 100vw, 45vw"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
         <h2>Giải pháp liên quan</h2>
         <p>{service?.description}</p>
         {service && <Link className="text-link" href={serviceHref(service.slug)}>Xem dịch vụ {service.shortTitle.toLocaleLowerCase('vi')} <Icon /></Link>}

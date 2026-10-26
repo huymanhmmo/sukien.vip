@@ -14,4 +14,32 @@ import JsonLd from '@/components/ui/JsonLd';
 import { pageMetadata } from '@/lib/seo';
 import { site } from '@/lib/site';
 export const metadata = pageMetadata('Tổ chức sự kiện Hà Nội – Your Dreams', 'Tổ chức sự kiện thể thao, doanh nghiệp và giáo dục cùng Your Dreams. Khám phá dự án thực tế, giải pháp trọn gói và liên hệ 0979 121 097.', '/');
-export default function Home() { return <><Hero /><Partners /><Services /><Capabilities /><Portfolio /><FeaturedCase /><About /><Proof /><Process /><BlogPreview /><Faq /><CTA /><JsonLd data={{ '@context': 'https://schema.org', '@type': 'WebSite', '@id': site.url + '/#website', url: site.url, name: site.name, inLanguage: 'vi-VN', publisher: { '@id': site.url + '/#organization' } }} /></>; }
+export default function Home() {
+  return (
+    <>
+      <Hero />
+      <Partners />
+      <Services />
+      <Capabilities />
+      <Portfolio />
+      <FeaturedCase />
+      <About />
+      <Proof />
+      <Process />
+      <BlogPreview />
+      <Faq />
+      <CTA />
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        '@id': `${site.url}/#website`,
+        url: site.url,
+        name: site.name,
+        alternateName: 'Sự Kiện Vip – Your Dreams',
+        description: 'Công ty Cổ phần Your Dreams tổ chức sự kiện thể thao, doanh nghiệp và giáo dục chuyên nghiệp tại Việt Nam.',
+        inLanguage: 'vi-VN',
+        publisher: { '@id': `${site.url}/#organization` },
+      }} />
+    </>
+  );
+}

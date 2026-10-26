@@ -3,7 +3,8 @@ import { sitemapIndex } from '@/lib/sitemap-xml';
 
 export function GET() {
   return sitemapIndex([
-    `${site.url}/sitemap-posts.xml`,
-    `${site.url}/sitemap-pages.xml`,
+    { url: `${site.url}/sitemap-posts.xml`, lastModified: '2026-10-24' },
+    { url: `${site.url}/sitemap-pages.xml`, lastModified: '2026-10-24' },
   ]);
 }
+
